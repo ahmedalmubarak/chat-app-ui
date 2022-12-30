@@ -14,15 +14,15 @@ class TextMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: MediaQuery.of(context).platformBrightness == Brightness.dark
-          ? Colors.white
-          : Colors.black,
+
       padding: EdgeInsets.symmetric(
         horizontal: kDefaultPadding * 0.75,
         vertical: kDefaultPadding / 2,
       ),
       decoration: BoxDecoration(
-        color: kPrimaryColor.withOpacity(message!.isSender ? 1 : 0.1),
+        color: MediaQuery.of(context).platformBrightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
         borderRadius: BorderRadius.circular(30),
       ),
       child: Text(
@@ -30,7 +30,7 @@ class TextMessage extends StatelessWidget {
         style: TextStyle(
           color: message!.isSender
               ? Colors.white
-              : Theme.of(context).textTheme.bodyText1!.color,
+              : Colors.white,
         ),
       ),
     );
